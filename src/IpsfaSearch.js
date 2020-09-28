@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import moment from "moment";
 import ClipboardJS from "clipboard";
-// import { useFetch } from "./hooks/useFetch";
+import { useFetch } from "./hooks/useFetch";
 import { FormMilitar } from "./components/FormMilitar";
 import { InputSearch } from "./components/InputSearch";
 import { Loading } from "./components/Loading";
@@ -26,11 +26,13 @@ function IpsfaSearch() {
       );
       const data = await res.json();
       setData(data);
-      // console.log(data);
       setLoading(false);
     },
     [refInput, setData, setLoading]
   );
+
+  // En la carpeta de hooks hay un useFetch que quiero usar para optimizar el codigo,
+  //     el devuelve un state que contiene la data, el loading y un error por si no se carga
 
   // const yo = useFetch(
   //   `https://app.ipsfa.gob.ve:2608/ipsfa/api/web/militar/17089732`
@@ -111,6 +113,8 @@ function IpsfaSearch() {
     DatoBasico || {};
   const { nombre: nombreDelComponente } = Componente || {};
   const { descripcion: descripcionDelGrado } = Grado || {};
+
+  //Necesito desestructurar el array de los familiares para crear una tarjeta nueva para mostrarlas por cada familia siempre que lo haya
   const [familiaMilitar] = Familiar || [];
   console.log(familiaMilitar);
 
