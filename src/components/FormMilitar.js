@@ -10,9 +10,11 @@ export const FormMilitar = ({
   clase,
   fingreso,
   fusacenso,
+  fechanacimiento,
   nombreDelComponente,
   descripcionDelGrado,
   id,
+  tiemposervicio,
 }) => {
   return (
     <div className="mt-8 overflow-hidden bg-white shadow sm:rounded-lg">
@@ -56,6 +58,22 @@ export const FormMilitar = ({
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {sexo}
+            </dd>
+          </div>
+          <div className="px-2 py-2 bg-gray-100 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
+              Fecha de Nacimiento
+            </dt>
+            <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+              {fechanacimiento}
+            </dd>
+          </div>
+          <div className="px-2 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
+              Tiempo de servicio
+            </dt>
+            <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
+              {tiemposervicio}
             </dd>
           </div>
 
@@ -126,13 +144,13 @@ export const FormMilitar = ({
                     </span>
                   </div>
                   <div className="flex-shrink-0 ml-4">
-                    <a
+                    <button
                       href="#"
                       id={id}
                       className="font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500"
                     >
                       Copiar
-                    </a>
+                    </button>
                   </div>
                 </li>
                 <li className="flex items-center justify-between py-3 pl-3 pr-4 text-sm leading-5 border-t border-gray-200">
@@ -154,12 +172,12 @@ export const FormMilitar = ({
                     </span>
                   </div>
                   <div className="flex-shrink-0 ml-4">
-                    <a
+                    <button
                       href="#"
                       className="font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500"
                     >
                       Descargar
-                    </a>
+                    </button>
                   </div>
                 </li>
               </ul>

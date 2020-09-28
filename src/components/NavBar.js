@@ -68,7 +68,7 @@ export const NavBar = () => {
             <div className="hidden sm:block sm:ml-6">
               <div className="flex">
                 <a
-                  href="#"
+                  href="./"
                   className="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-gray-900 rounded-md focus:outline-none focus:text-white focus:bg-gray-700"
                 >
                   BUSCADOR IPSFA
@@ -86,12 +86,12 @@ export const NavBar = () => {
   */}
       <div className="hidden sm:hidden">
         <div className="px-2 pt-2 pb-3">
-          <a
+          <button
             href="#"
             className="block px-3 py-2 text-base font-medium text-white transition duration-150 ease-in-out bg-gray-900 rounded-md focus:outline-none focus:text-white focus:bg-gray-700"
           >
             BUSCADOR IPSFA
-          </a>
+          </button>
         </div>
       </div>
     </nav>

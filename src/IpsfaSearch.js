@@ -1,9 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import moment from "moment";
 import ClipboardJS from "clipboard";
-import { useFetch } from "./hooks/useFetch";
+// import { useFetch } from "./hooks/useFetch";
 import { FormMilitar } from "./components/FormMilitar";
-import { NavBar } from "./components/NavBar";
 import { InputSearch } from "./components/InputSearch";
 import { Loading } from "./components/Loading";
 
@@ -27,7 +26,7 @@ function IpsfaSearch() {
       );
       const data = await res.json();
       setData(data);
-      console.log(data);
+      // console.log(data);
       setLoading(false);
     },
     [refInput, setData, setLoading]
@@ -49,6 +48,7 @@ function IpsfaSearch() {
       fretiro,
       Componente,
       Grado,
+      tiemposervicio,
     } = data;
     const { DatoBasico } = Persona || {};
     const {
@@ -58,6 +58,7 @@ function IpsfaSearch() {
       apellidoprimero,
       sexo,
       estadocivil,
+      fechanacimiento,
     } = DatoBasico || {};
     const {
       nombre: nombreDelComponente,
@@ -72,11 +73,13 @@ function IpsfaSearch() {
             Nacionalidad: ${nacionalidad}
             Nombres: ${nombreprimero}
             Apellidos: ${apellidoprimero}
+            Fecha de Nacimiento: ${fechanacimiento}
             Sexo: ${sexo}
             Estado civil: ${estadocivil}
             Categoria: ${categoria}
             Situación: ${situacion}
             Clase: ${clase}
+            Tiempo de Servicio: ${tiemposervicio}
             Fecha de ingreso: ${moment(fingreso).format("L")}
             Fecha de último ascenso: ${moment(fascenso).format("L")}
             Fecha de retiro: ${moment(fretiro).format("L")}
@@ -100,11 +103,16 @@ function IpsfaSearch() {
     fascenso,
     Componente,
     Grado,
+    tiemposervicio,
+    Familiar,
   } = data;
   const { DatoBasico } = Persona || {};
-  const { cedula, nombreprimero, apellidoprimero, sexo } = DatoBasico || {};
+  const { cedula, nombreprimero, apellidoprimero, sexo, fechanacimiento } =
+    DatoBasico || {};
   const { nombre: nombreDelComponente } = Componente || {};
   const { descripcion: descripcionDelGrado } = Grado || {};
+  const [familiaMilitar] = Familiar || [];
+  console.log(familiaMilitar);
 
   return (
     <div>
@@ -120,10 +128,12 @@ function IpsfaSearch() {
             sexo={sexo}
             categoria={categoria}
             situacion={situacion}
+            fechanacimiento={moment(fechanacimiento).format("L")}
             clase={clase}
             fingreso={moment(fingreso).format("L")}
             fusacenso={moment(fascenso).format("L")}
             nombreDelComponente={nombreDelComponente}
+            tiemposervicio={tiemposervicio}
             descripcionDelGrado={descripcionDelGrado}
             id={"btn"}
           />
