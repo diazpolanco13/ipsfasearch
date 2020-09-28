@@ -3,6 +3,8 @@ import moment from "moment";
 import ClipboardJS from "clipboard";
 import { useFetch } from "./hooks/useFetch";
 import { FormMilitar } from "./components/FormMilitar";
+import { NavBar } from "./components/NavBar";
+import { InputSearch } from "./components/InputSearch";
 
 function IpsfaSearch() {
   const [data, setData] = useState({});
@@ -116,6 +118,7 @@ function IpsfaSearch() {
 
       <button id="btn">Copiar en el porta papeles</button>
 
+      <InputSearch />
       {loading ? (
         <p>Cargando...</p>
       ) : (
