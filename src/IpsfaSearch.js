@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import moment from "moment";
 import ClipboardJS from "clipboard";
+import { useFetch } from "./hooks/useFetch";
+import { FormMilitar } from "./components/FormMilitar";
 
-function App() {
+function IpsfaSearch() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const refInput = useRef(null);
@@ -21,12 +23,16 @@ function App() {
         `https://app.ipsfa.gob.ve:2608/ipsfa/api/web/militar/${value}`
       );
       const data = await res.json();
-      console.log(data);
       setData(data);
       setLoading(false);
     },
     [refInput, setData, setLoading]
   );
+
+  const yo = useFetch(
+    `https://app.ipsfa.gob.ve:2608/ipsfa/api/web/militar/17089732`
+  );
+  console.log(yo);
 
   useEffect(() => {
     const {
@@ -88,21 +94,12 @@ function App() {
     clase,
     fingreso,
     fascenso,
-    fretiro,
     Componente,
     Grado,
   } = data;
   const { DatoBasico } = Persona || {};
-  const {
-    cedula,
-    nacionalidad,
-    nombreprimero,
-    apellidoprimero,
-    sexo,
-    estadocivil,
-  } = DatoBasico || {};
-  const { nombre: nombreDelComponente, descripcion: descripcionDelComponente } =
-    Componente || {};
+  const { cedula, nombreprimero, apellidoprimero, sexo } = DatoBasico || {};
+  const { nombre: nombreDelComponente } = Componente || {};
   const { descripcion: descripcionDelGrado } = Grado || {};
 
   return (
@@ -110,7 +107,7 @@ function App() {
       <h1>IPSFA</h1>
       <form onSubmit={handleOnSubmit}>
         <label>
-          Cédula: <input ref={refInput} type="text" placeholder="12345678" />{" "}
+          Cédula: <input ref={refInput} type="text" placeholder="12345678" />
           <button type="submit" disabled={loading}>
             Buscar
           </button>
@@ -119,66 +116,27 @@ function App() {
 
       <button id="btn">Copiar en el porta papeles</button>
 
-      <h2>Datos</h2>
       {loading ? (
         <p>Cargando...</p>
       ) : (
         <div>
-          <h3>Datos Básicos:</h3>
-          <p>
-            <strong>Cédula:</strong> {cedula}
-          </p>
-          <p>
-            <strong>Nacionalidad:</strong> {nacionalidad}
-          </p>
-          <p>
-            <strong>Nombres:</strong> {nombreprimero}
-          </p>
-          <p>
-            <strong>Apellidos:</strong> {apellidoprimero}
-          </p>
-          <p>
-            <strong>Sexo:</strong> {sexo}
-          </p>
-          <p>
-            <strong>Estado civil:</strong> {estadocivil}
-          </p>
-          <p>
-            <strong>Categoria:</strong> {categoria}
-          </p>
-          <p>
-            <strong>Situación:</strong> {situacion}
-          </p>
-          <p>
-            <strong>Clase:</strong> {clase}
-          </p>
-          <p>
-            <strong>Fecha de ingreso:</strong> {moment(fingreso).format("L")}
-          </p>
-          <p>
-            <strong>Fecha de último ascenso:</strong>{" "}
-            {moment(fascenso).format("L")}
-          </p>
-          <p>
-            <strong>Fecha de retiro:</strong> {moment(fretiro).format("L")}
-          </p>
-
-          <h3>Componente</h3>
-          <p>
-            <strong>Nombre:</strong> {nombreDelComponente}
-          </p>
-          <p>
-            <strong>Descripción:</strong> {descripcionDelComponente}
-          </p>
-
-          <h3>Grado</h3>
-          <p>
-            <strong>Descripción:</strong> {descripcionDelGrado}
-          </p>
+          <FormMilitar
+            cedula={cedula}
+            nombreprimero={nombreprimero}
+            apellidoprimero={apellidoprimero}
+            sexo={sexo}
+            categoria={categoria}
+            situacion={situacion}
+            clase={clase}
+            fingreso={moment(fingreso).format("L")}
+            fusacenso={moment(fascenso).format("L")}
+            nombreDelComponente={nombreDelComponente}
+            descripcionDelGrado={descripcionDelGrado}
+          />
         </div>
       )}
     </div>
   );
 }
 
-export default App;
+export default IpsfaSearch;

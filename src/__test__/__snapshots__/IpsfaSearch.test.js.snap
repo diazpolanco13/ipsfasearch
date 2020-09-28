@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en el IpsfaDescribe Debe cerear un SnapShot 1`] = `
+<div>
+  <h1>
+    IPSFA
+  </h1>
+  <form
+    onSubmit={[Function]}
+  >
+    <label>
+      Cédula: 
+      <input
+        placeholder="12345678"
+        type="text"
+      />
+       
+      <button
+        disabled={false}
+        type="submit"
+      >
+        Buscar
+      </button>
+    </label>
+  </form>
+  <button
+    id="btn"
+  >
+    Copiar en el porta papeles
+  </button>
+  <h2>
+    Datos
+  </h2>
+  <div>
+    <h3>
+      Datos Básicos:
+    </h3>
+    <p>
+      <strong>
+        Cédula:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Nacionalidad:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Nombres:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Apellidos:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Sexo:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Estado civil:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Categoria:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Situación:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Clase:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Fecha de ingreso:
+      </strong>
+       
+      09/28/2020
+    </p>
+    <p>
+      <strong>
+        Fecha de último ascenso:
+      </strong>
+       
+      09/28/2020
+    </p>
+    <p>
+      <strong>
+        Fecha de retiro:
+      </strong>
+       
+      09/28/2020
+    </p>
+    <h3>
+      Componente
+    </h3>
+    <p>
+      <strong>
+        Nombre:
+      </strong>
+       
+    </p>
+    <p>
+      <strong>
+        Descripción:
+      </strong>
+       
+    </p>
+    <h3>
+      Grado
+    </h3>
+    <p>
+      <strong>
+        Descripción:
+      </strong>
+       
+    </p>
+  </div>
+</div>
+`;
