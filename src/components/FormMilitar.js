@@ -12,45 +12,46 @@ export const FormMilitar = ({
   fusacenso,
   nombreDelComponente,
   descripcionDelGrado,
+  id,
 }) => {
   return (
-    <div className="bg-white shadow overflow-hidden sm:rounded-lg mt-8">
+    <div className="mt-8 overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-2 py-2 border-b border-gray-200 sm:px-6">
-        <h3 className="text-lg leading-6 font-medium text-gray-900">
+        <h3 className="text-lg font-medium leading-6 text-gray-900">
           Hoja de datos personales
         </h3>
-        <p className="mt-1 max-w-2xl text-sm leading-5 text-gray-500">
+        <p className="max-w-2xl mt-1 text-sm leading-5 text-gray-500">
           Personal militar y civil de la FANB
         </p>
       </div>
       <div>
         <dl>
-          <div className="bg-gray-100 px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
-              <b>Grado/Componente</b>
+          <div className="px-2 py-2 bg-gray-100 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
+              Grado/Componente
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {descripcionDelGrado} {nombreDelComponente}
             </dd>
           </div>
-          <div className="bg-white px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Nombre Completo
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {nombreprimero} {apellidoprimero}
             </dd>
           </div>
-          <div className="bg-gray-100 px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-gray-100 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Cedula
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {cedula}
             </dd>
           </div>
-          <div className="bg-white px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Sexo
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
@@ -58,40 +59,40 @@ export const FormMilitar = ({
             </dd>
           </div>
 
-          <div className="bg-gray-100 px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-gray-100 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Clase
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {clase}
             </dd>
           </div>
-          <div className="bg-white px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Situacion
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {situacion}
             </dd>
           </div>
-          <div className="bg-gray-100 px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-gray-100 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Categoria
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {categoria}
             </dd>
           </div>
-          <div className="bg-white px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Fecha de Ingreso
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               {fingreso}
             </dd>
           </div>
-          <div className="bg-gray-100 px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-gray-100 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Fecha de ultimo ascenso
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
@@ -100,17 +101,17 @@ export const FormMilitar = ({
           </div>
 
           {/* ARCHIVOS ADJUNTOS */}
-          <div className="bg-white px-2 py-2 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm leading-5 font-medium text-gray-500">
+          <div className="px-2 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+            <dt className="text-sm font-medium leading-5 text-gray-500">
               Archivos adjuntos
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
               <ul className="border border-gray-200 rounded-md">
-                <li className="pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-                  <div className="w-0 flex-1 flex items-center">
+                <li className="flex items-center justify-between py-3 pl-3 pr-4 text-sm leading-5">
+                  <div className="flex items-center flex-1 w-0">
                     {/* Heroicon name: paper-clip */}
                     <svg
-                      className="flex-shrink-0 h-5 w-5 text-gray-400"
+                      className="flex-shrink-0 w-5 h-5 text-gray-400"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -120,24 +121,25 @@ export const FormMilitar = ({
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="ml-2 flex-1 w-0 truncate">
-                      Copiar en portapapeles
+                    <span className="flex-1 w-0 ml-2 truncate">
+                      Copiar datos en portapapeles
                     </span>
                   </div>
-                  <div className="ml-4 flex-shrink-0">
+                  <div className="flex-shrink-0 ml-4">
                     <a
                       href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out"
+                      id={id}
+                      className="font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500"
                     >
                       Copiar
                     </a>
                   </div>
                 </li>
-                <li className="border-t border-gray-200 pl-3 pr-4 py-3 flex items-center justify-between text-sm leading-5">
-                  <div className="w-0 flex-1 flex items-center">
+                <li className="flex items-center justify-between py-3 pl-3 pr-4 text-sm leading-5 border-t border-gray-200">
+                  <div className="flex items-center flex-1 w-0">
                     {/* Heroicon name: paper-clip */}
                     <svg
-                      className="flex-shrink-0 h-5 w-5 text-gray-400"
+                      className="flex-shrink-0 w-5 h-5 text-gray-400"
                       viewBox="0 0 20 20"
                       fill="currentColor"
                     >
@@ -147,12 +149,14 @@ export const FormMilitar = ({
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="ml-2 flex-1 w-0 truncate">Perfil.pdf</span>
+                    <span className="flex-1 w-0 ml-2 truncate">
+                      Generar perfil.pdf
+                    </span>
                   </div>
-                  <div className="ml-4 flex-shrink-0">
+                  <div className="flex-shrink-0 ml-4">
                     <a
                       href="#"
-                      className="font-medium text-indigo-600 hover:text-indigo-500 transition duration-150 ease-in-out"
+                      className="font-medium text-indigo-600 transition duration-150 ease-in-out hover:text-indigo-500"
                     >
                       Descargar
                     </a>

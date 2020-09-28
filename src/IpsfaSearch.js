@@ -5,6 +5,7 @@ import { useFetch } from "./hooks/useFetch";
 import { FormMilitar } from "./components/FormMilitar";
 import { NavBar } from "./components/NavBar";
 import { InputSearch } from "./components/InputSearch";
+import { Loading } from "./components/Loading";
 
 function IpsfaSearch() {
   const [data, setData] = useState({});
@@ -26,15 +27,16 @@ function IpsfaSearch() {
       );
       const data = await res.json();
       setData(data);
+      console.log(data);
       setLoading(false);
     },
     [refInput, setData, setLoading]
   );
 
-  const yo = useFetch(
-    `https://app.ipsfa.gob.ve:2608/ipsfa/api/web/militar/17089732`
-  );
-  console.log(yo);
+  // const yo = useFetch(
+  //   `https://app.ipsfa.gob.ve:2608/ipsfa/api/web/militar/17089732`
+  // );
+  // console.log(yo);
 
   useEffect(() => {
     const {
@@ -106,21 +108,9 @@ function IpsfaSearch() {
 
   return (
     <div>
-      <h1>IPSFA</h1>
-      <form onSubmit={handleOnSubmit}>
-        <label>
-          Cédula: <input ref={refInput} type="text" placeholder="12345678" />
-          <button type="submit" disabled={loading}>
-            Buscar
-          </button>
-        </label>
-      </form>
-
-      <button id="btn">Copiar en el porta papeles</button>
-
-      <InputSearch />
+      <InputSearch refInput={refInput} handleOnSubmit={handleOnSubmit} />
       {loading ? (
-        <p>Cargando...</p>
+        <Loading />
       ) : (
         <div>
           <FormMilitar
@@ -135,6 +125,7 @@ function IpsfaSearch() {
             fusacenso={moment(fascenso).format("L")}
             nombreDelComponente={nombreDelComponente}
             descripcionDelGrado={descripcionDelGrado}
+            id={"btn"}
           />
         </div>
       )}
