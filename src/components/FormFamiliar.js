@@ -26,7 +26,15 @@ export const FormFamiliar = ({ familia, id }) => {
              Fecha de Nacimiento: ${fechanacimiento}
         `,
     });
-  }, [id, familia])
+  }, [
+    id,
+    familia,
+    nombreprimero,
+    cedula,
+    sexo,
+    apellidoprimero,
+    fechanacimiento,
+  ]);
 
   return (
     <div className="mt-4">

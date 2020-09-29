@@ -5,10 +5,12 @@ import { FormMilitar } from "./components/FormMilitar";
 import { InputSearch } from "./components/InputSearch";
 import { Loading } from "./components/Loading";
 import { FormFamiliar } from "./components/FormFamiliar";
+import { Alert } from "./components/Alert";
 
 function IpsfaSearch() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false)
   const refInput = useRef(null);
   const familiarLength = useMemo(() => {
     const { Familiar } = data
@@ -21,8 +23,12 @@ function IpsfaSearch() {
 
       const value = refInput.current.value;
 
-      if (value === "") return alert("Ingrese un número de cédula");
-
+      if (value === "") {
+        setError(true)
+        setLoading(false)
+        return
+      } 
+       setError(false)
       setLoading(true);
 
       const res = await fetch(
@@ -122,6 +128,9 @@ function IpsfaSearch() {
   return (
     <div>
       <InputSearch refInput={refInput} handleOnSubmit={handleOnSubmit} />
+      {
+        error === true && <Alert />
+      }
       {loading ? (
         <Loading />
       ) : (
