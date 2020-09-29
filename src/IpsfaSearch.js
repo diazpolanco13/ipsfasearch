@@ -124,7 +124,7 @@ function IpsfaSearch() {
   } = DatoBasico || {};
   const { nombre: nombreDelComponente } = Componente || {};
   const { descripcion: descripcionDelGrado } = Grado || {};
-
+  console.log(Persona)
   return (
     <div>
       <InputSearch refInput={refInput} handleOnSubmit={handleOnSubmit} />
