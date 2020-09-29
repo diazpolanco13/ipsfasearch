@@ -1,10 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import moment from "moment";
 import ClipboardJS from "clipboard";
-import { useFetch } from "./hooks/useFetch";
+// import { useFetch } from "./hooks/useFetch";
 import { FormMilitar } from "./components/FormMilitar";
 import { InputSearch } from "./components/InputSearch";
 import { Loading } from "./components/Loading";
+import { FormFamiliar } from "./components/FormFamiliar";
 
 function IpsfaSearch() {
   const [data, setData] = useState({});
@@ -52,6 +53,7 @@ function IpsfaSearch() {
       Grado,
       tiemposervicio,
     } = data;
+
     const { DatoBasico } = Persona || {};
     const {
       cedula,
@@ -108,15 +110,19 @@ function IpsfaSearch() {
     tiemposervicio,
     Familiar,
   } = data;
+  // console.log(data);
   const { DatoBasico } = Persona || {};
-  const { cedula, nombreprimero, apellidoprimero, sexo, fechanacimiento } =
-    DatoBasico || {};
+  const {
+    cedula,
+    nombreprimero,
+    apellidoprimero,
+    sexo,
+    fechanacimiento,
+    nacionalidad,
+  } = DatoBasico || {};
   const { nombre: nombreDelComponente } = Componente || {};
   const { descripcion: descripcionDelGrado } = Grado || {};
 
-  //Necesito desestructurar el array de los familiares para crear una tarjeta nueva para mostrarlas por cada familia siempre que lo haya
-  const [familiaMilitar] = Familiar || [];
-  console.log(familiaMilitar);
 
   return (
     <div>
@@ -138,9 +144,24 @@ function IpsfaSearch() {
             fusacenso={moment(fascenso).format("L")}
             nombreDelComponente={nombreDelComponente}
             tiemposervicio={tiemposervicio}
+            nacionalidad={nacionalidad}
             descripcionDelGrado={descripcionDelGrado}
             id={"btn"}
           />
+          <div>
+            {Familiar && Familiar.length > 1 ? (
+              <ul className="mt-8">
+                <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 ">
+                  Familiares
+                </h3>
+                {Familiar.map((familia, index) => (
+                  <li key={index}>
+                    <FormFamiliar familia={familia} id={"btn"} />
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
         </div>
       )}
     </div>

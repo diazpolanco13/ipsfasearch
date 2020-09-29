@@ -1,4 +1,5 @@
 import React from "react";
+// import ClipboardJS from "clipboard";
 
 export const FormMilitar = ({
   cedula,
@@ -15,6 +16,7 @@ export const FormMilitar = ({
   descripcionDelGrado,
   id,
   tiemposervicio,
+  nacionalidad,
 }) => {
   return (
     <div className="mt-8 overflow-hidden bg-white shadow sm:rounded-lg">
@@ -49,7 +51,7 @@ export const FormMilitar = ({
               Cedula
             </dt>
             <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-              {cedula}
+              {nacionalidad}-{cedula}
             </dd>
           </div>
           <div className="px-2 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
