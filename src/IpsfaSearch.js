@@ -1,7 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import moment from "moment";
 import ClipboardJS from "clipboard";
-// import { useFetch } from "./hooks/useFetch";
 import { FormMilitar } from "./components/FormMilitar";
 import { InputSearch } from "./components/InputSearch";
 import { Loading } from "./components/Loading";
@@ -11,6 +10,10 @@ function IpsfaSearch() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const refInput = useRef(null);
+  const familiarLength = useMemo(() => {
+    const { Familiar } = data
+    return Familiar ? Familiar.length : 0
+  }, [data])
 
   const handleOnSubmit = useCallback(
     async (ev) => {
@@ -32,13 +35,6 @@ function IpsfaSearch() {
     [refInput, setData, setLoading]
   );
 
-  // En la carpeta de hooks hay un useFetch que quiero usar para optimizar el codigo,
-  //     el devuelve un state que contiene la data, el loading y un error por si no se carga
-
-  // const yo = useFetch(
-  //   `https://app.ipsfa.gob.ve:2608/ipsfa/api/web/militar/17089732`
-  // );
-  // console.log(yo);
 
   useEffect(() => {
     const {
@@ -123,7 +119,6 @@ function IpsfaSearch() {
   const { nombre: nombreDelComponente } = Componente || {};
   const { descripcion: descripcionDelGrado } = Grado || {};
 
-
   return (
     <div>
       <InputSearch refInput={refInput} handleOnSubmit={handleOnSubmit} />
@@ -138,30 +133,30 @@ function IpsfaSearch() {
             sexo={sexo}
             categoria={categoria}
             situacion={situacion}
-            fechanacimiento={moment(fechanacimiento).format("L")}
+            fechanacimiento={fechanacimiento ? moment(fechanacimiento).format("L") : null}
             clase={clase}
-            fingreso={moment(fingreso).format("L")}
-            fusacenso={moment(fascenso).format("L")}
+            fingreso={fingreso ? moment(fingreso).format("L") : null}
+            fusacenso={fascenso ? moment(fascenso).format("L") : null}
             nombreDelComponente={nombreDelComponente}
             tiemposervicio={tiemposervicio}
             nacionalidad={nacionalidad}
             descripcionDelGrado={descripcionDelGrado}
             id={"btn"}
           />
-          <div>
-            {Familiar && Familiar.length > 1 ? (
-              <ul className="mt-8">
-                <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 ">
-                  Familiares
-                </h3>
+          {familiarLength > 1 ? (
+            <div>
+              <h3 className="mt-8 text-lg font-medium leading-6 text-gray-900 ">
+                Familiares: {familiarLength}
+              </h3>
+              <ul className="mt-4">
                 {Familiar.map((familia, index) => (
                   <li key={index}>
-                    <FormFamiliar familia={familia} id={"btn"} />
+                    <FormFamiliar familia={familia} id={`btn-familiar-${index}`} />
                   </li>
                 ))}
               </ul>
-            ) : null}
-          </div>
+            </div>
+          ) : null}
         </div>
       )}
     </div>

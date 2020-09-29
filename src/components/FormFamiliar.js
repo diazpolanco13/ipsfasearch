@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import moment from "moment";
+import diccionarioParentezco from '../utils/diccionarioParentezco'
+import ClipboardJS from "clipboard";
 
 export const FormFamiliar = ({ familia, id }) => {
   const { Persona, parentesco } = familia || {};
@@ -13,9 +15,22 @@ export const FormFamiliar = ({ familia, id }) => {
     nacionalidad,
   } = DatoBasico || {};
 
+  useEffect(() => {
+    new ClipboardJS(`#${id}`, {
+      text: () => `
+          Datos Básicos:
+             Nombres: ${nombreprimero}
+             Apellidos: ${apellidoprimero}
+             Cédula: ${cedula}
+             Sexo: ${sexo}
+             Fecha de Nacimiento: ${fechanacimiento}
+        `,
+    });
+  }, [id, familia])
+
   return (
-    <div>
-      <div className="mb-8 overflow-hidden bg-white shadow sm:rounded-lg">
+    <div className="mt-4">
+      <div className="overflow-hidden bg-white shadow sm:rounded-lg">
         <div className="px-2 py-2 border-b border-gray-200 sm:px-6"></div>
         <div>
           <dl>
@@ -24,7 +39,7 @@ export const FormFamiliar = ({ familia, id }) => {
                 Parentesco
               </dt>
               <dd className="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-2">
-                {parentesco}
+                {diccionarioParentezco(parentesco)}
               </dd>
             </div>
             <div className="px-2 py-2 bg-white sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
