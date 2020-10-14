@@ -1,7 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b6cd08d8125c741807074326b83bff3e",
+    "revision": "5c68056b34055762eb2ed1c5c54e4f0c",
     "url": "/ipsfasearch/index.html"
+  },
+  {
+    "revision": "3b91ed93a674db0e88b1",
+    "url": "/ipsfasearch/static/css/main.e2b660b2.chunk.css"
   },
   {
     "revision": "24f35aa3c6bd840c941d",
@@ -12,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/ipsfasearch/static/js/2.21301ed8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b3b7e22b88d0a0bd7f0e",
-    "url": "/ipsfasearch/static/js/main.e0af5d7b.chunk.js"
+    "revision": "3b91ed93a674db0e88b1",
+    "url": "/ipsfasearch/static/js/main.7a7b6046.chunk.js"
   },
   {
     "revision": "4e1a5a39d7ec49699162",

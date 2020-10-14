@@ -72,6 +72,9 @@ function IpsfaSearch() {
     } = Componente || {};
     const { descripcion: descripcionDelGrado } = Grado || {};
 
+console.log(DatoBasico)
+
+
     new ClipboardJS("#btn", {
       text: () => `
           Datos Básicos:

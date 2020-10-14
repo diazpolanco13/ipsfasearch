@@ -1,5 +1,5 @@
 {
-  "homepage":"https://diazpolanco13.github.io/ipsfasearch",
+  "homepage": "https://diazpolanco13.github.io/ipsfasearch",
   "name": "ipsfasearch",
   "version": "0.1.0",
   "private": true,
@@ -15,14 +15,13 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "npm run watch:css && react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "build:tailwind": "NODE_ENV=production tailwindcss build src/assets/tailwind.css -o src/assets/tailwind.output.css",
+    "prestart": "npm run build:tailwind",
+    "start": "react-scripts start",
+    "build": "NODE_ENV=production react-scripts build",
+    "prod:build": "NODE_ENV=production npm run build:tailwind react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:css": "postcss src/assets/tailwind.css -o public/style.css",
-    "watch:css": "postcss src/assets/tailwind.css -o public/style.css",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
